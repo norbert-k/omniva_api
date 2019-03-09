@@ -10,10 +10,11 @@ defmodule OmnivaApi do
   def get_pickup_points() do
     case Request.get("/locations.json") do
       {:ok, data} ->
-        data
+        data = data
         |> Common.clean_data()
         |> Common.enum_each_new(PickupPoint)
 
+        {:ok, data}
       {:error, error} ->
         {:error, error}
     end
