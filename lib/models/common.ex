@@ -1,9 +1,9 @@
 defmodule OmnivaApi.Models.Common do
   def enum_each_new(raw_list, module) when is_list(raw_list) do
     raw_list
-    |> Enum.map(fn data -> 
-        IO.inspect(data)
-        struct(module, data)
+    |> Enum.map(fn data ->
+      IO.inspect(data)
+      struct(module, data)
     end)
   end
 
@@ -18,7 +18,7 @@ defmodule OmnivaApi.Models.Common do
       {String.downcase(key), value}
     end)
     |> Map.new(fn {key, value} ->
-       {String.to_atom(key), value} 
+      {String.to_atom(key), value}
     end)
   end
 end
