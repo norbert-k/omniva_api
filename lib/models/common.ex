@@ -2,7 +2,7 @@ defmodule OmnivaApi.Models.Common do
   def enum_each_new(raw_list, module) when is_list(raw_list) do
     raw_list
     |> Enum.map(fn data ->
-      struct(module, data)
+      apply(module, :new, [data])
     end)
   end
 
